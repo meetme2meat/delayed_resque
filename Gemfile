@@ -3,7 +3,6 @@ source :rubygems
 gem 'resque'
 gem 'resque-scheduler'
 gem 'rails'
-gem 'pry'
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
