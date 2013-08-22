@@ -6,7 +6,7 @@ module DelayedResque
     AR_STRING_FORMAT = /^AR\:([A-Z][\w\:]+)\:(\d+)$/
 
     def initialize(object, method, options, args)
-      raise NoMethodError, "undefined method `#{method}' for #{object.inspect}" unless object.respond_to?(method)
+      raise NoMethodError, "undefined method `#{method}' for #{object.inspect}" unless object.respond_to?(method,true)
 
       @object = dump(object)
       @method = method.to_sym
@@ -28,8 +28,8 @@ module DelayedResque
     
     def self.perform(options)
       object = options["obj"]
-      method = options["method"]
-      args = options["args"]
+      method = options["method"] 
+      args = options["args"] 
       self.load(object).send(method, *args.map{|a| self.load(a)})
     rescue ActiveRecord::RecordNotFound
       Rails.logger.warn("PerformableMethod: failed to find record for #{object.inspect}")
@@ -47,6 +47,7 @@ module DelayedResque
       case arg
       when CLASS_STRING_FORMAT then $1.constantize
       when AR_STRING_FORMAT then $1.constantize.find($2)
+      when Hash then ::HashWithIndifferentAccess.new(arg)
       else arg
       end
     end

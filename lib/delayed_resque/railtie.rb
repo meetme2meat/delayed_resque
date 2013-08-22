@@ -11,6 +11,7 @@ module Delayed
 
     rake_tasks do
       load "resque/tasks.rb"
+      load "resque_scheduler/tasks.rb"
     end
   end
 end
