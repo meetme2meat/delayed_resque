@@ -19,3 +19,5 @@ Credits
 
 Based on the work of https://github.com/defunkt/resque and 
 https://github.com/collectiveidea/delayed_job.
+
+Special Thanks to https://github.com/k1w1 for the spec and the extracting most of the code out of delayed_job
