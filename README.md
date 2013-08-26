@@ -35,7 +35,8 @@ The queue to use for the method can be specified on the delay method:
 Ideally this accomplice in conjunction with [resque-scheduler](https://github.com/bvandenbos/resque-scheduler) so make sure to start resque-scheduler for this for more on how the resque-scheduler work check the [Readme](https://github.com/bvandenbos/resque-scheduler/blob/master/README.markdown) 
 
 4 . `handle_asynchronously` 
- Out of the box support for `handle_asynchronously` method supported over `delayed_job`  
+
+Out of the box support for `handle_asynchronously` method supported over `delayed_job`  
  
 
 Caveats
