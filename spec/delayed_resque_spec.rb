@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'resque_spec/scheduler'
-require 'pry'
 describe DelayedResque do
   before do
     ResqueSpec.reset!
@@ -114,7 +113,7 @@ describe DelayedResque do
     
     it "can run at specific time" do
       at_time = Time.now.utc + 10.minutes
-      DummyObject.delay(:at => at_time).first_method(123)
+      DummyObject.delay(:run_at  => at_time).first_method(123)
       DelayedResque::PerformableMethod.should have_scheduled({"obj"=>"CLASS:DummyObject", "method"=>:first_method, "args"=>[123]}).at(at_time)
       DelayedResque::PerformableMethod.should have_schedule_size_of(1)
     end
@@ -133,12 +132,12 @@ describe DelayedResque do
     
     it "can remove preceeding delayed jobs" do
       at_time = Time.now.utc + 10.minutes
-      DummyObject.delay(:at => at_time).first_method(123)
+      DummyObject.delay(:run_at => at_time).first_method(123)
       DelayedResque::PerformableMethod.should have_scheduled({"obj"=>"CLASS:DummyObject", "method"=>:first_method, "args"=>[123]}).at(at_time)
       DelayedResque::PerformableMethod.should have_schedule_size_of(1)
-      DummyObject.delay(:at => at_time + 1).first_method(123)
+      DummyObject.delay(:run_at => at_time + 1).first_method(123)
       DelayedResque::PerformableMethod.should have_schedule_size_of(2)
-      DummyObject.delay(:at => at_time + 2, :unique => true).first_method(123)
+      DummyObject.delay(:run_at => at_time + 2, :unique => true).first_method(123)
       DelayedResque::PerformableMethod.should have_schedule_size_of(1)
     end
   end

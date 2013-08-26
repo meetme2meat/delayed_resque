@@ -12,7 +12,7 @@ module DelayedResque
       queue = @options[:queue] || @payload_class.queue
       performable = @payload_class.new(@target, method.to_sym, @options, args)
       if @options[:unique]
-        if @options[:at] or @options[:in]
+        if @options[:run_at] or @options[:in]
           ::Resque.remove_delayed(@payload_class, performable.store)
         else
           ::Resque.dequeue(@payload_class, performable.store)
