@@ -4,7 +4,6 @@ Gem::Specification.new do |s|
   s.name = "delayed_resque"
   s.version = DelayedResque::VERSION
   s.authors = ["Viren Negi"]
-  s.date = Date.today
   s.email = ["meetme2meat@gmail.com"]
   s.homepage = "http://github.com/meetme2meat/delayed_resque"
   s.summary = %q{Delayed Job Syntax mapped over Resque}

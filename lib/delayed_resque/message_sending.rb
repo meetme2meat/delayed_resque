@@ -4,7 +4,7 @@ module DelayedResque
     def initialize(payload_class, target, options)
       @payload_class = payload_class
       @target = target
-      @options = {:queue => "default"}.update(options)
+      @options = options
     end
 
     def method_missing(method, *args)
