@@ -4,7 +4,7 @@ delayed_resque
 Provides [delayed_job](https://github.com/collectiveidea/delayed_job) syntax to [resque](https://github.com/resque/resque).
 
   [![Code Climate](https://codeclimate.com/github/meetme2meat/delayed_resque.png)](https://codeclimate.com/github/meetme2meat/delayed_resque)
-
+  [![Build Status](https://travis-ci.org/meetme2meat/delayed_resque.png?branch=master)](https://travis-ci.org/meetme2meat/delayed_resque)
 ### DelayedJob syntax supported are 
 1 . `delay`
 
