@@ -1,6 +1,9 @@
 delayed_resque
 ==============
 
+DISCLOSER: I'm no longer maintaing this repo, This was a project I took as an initiate to use Delayed Job Syntax in Resque, but apparently SideKiq has default all that need from resque hence,I'm no longer maintaing it
+
+
 Provides [delayed_job](https://github.com/collectiveidea/delayed_job) syntax to [resque](https://github.com/resque/resque).
 
   [![Code Climate](https://codeclimate.com/github/meetme2meat/delayed_resque.png)](https://codeclimate.com/github/meetme2meat/delayed_resque)
